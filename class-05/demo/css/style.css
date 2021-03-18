@@ -1,0 +1,32 @@
+div {
+    border: 1px solid green;
+    text-align: center;
+    font-size: 24px;
+  }
+  main {
+    border: 1px solid blue;
+  }
+  .container {
+    /*   position:relative; */
+    margin: 50px;
+    padding: 10px;
+    border: 2px solid red;
+  }
+  
+  .a {
+    position: static;
+  }
+  
+  .b {
+    position: static;
+    left: 50px;
+    top: 50px;
+  }
+  
+  .c {
+    display: block;
+  }
+
+  h1{
+    font-family: 'Satisfy', cursive;
+  }
