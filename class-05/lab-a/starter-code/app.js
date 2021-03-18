@@ -9,9 +9,10 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-
+let sumNumber=a+b;
+return([sumNumber,'The sum of ' +a +' and '+ b +' is '+ sumNumber+ '.']);
 }
-
+console.log(sum(4,7));
 // Here is the test for sum(); uncomment it to run it
 // testSum(4, 7);
 
