@@ -6,7 +6,7 @@ Write a function called sum() that takes in two numbers as arguments and then re
 "The sum of 4 and 7 is 11."
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSum() function below and check the console to see if the test passes.*/
-
+let mTest=[1,1];
 // Write your code here
 function sum(a, b) { //eslint-disable-line
 
@@ -137,9 +137,16 @@ let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
-}
 
+    for(let i=0;i<testDynamicArray.length;i++)
+    {
+        mTest=multiply(mTest[0],testDynamicArray[i]);  
+        
+    }
+    return([mTest[0],'The numbers '+ testDynamicArray+' have a product of '+ mTest[0]+'.']);
+}
+console.log(multiplyAnyArray(testDynamicArray));
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
