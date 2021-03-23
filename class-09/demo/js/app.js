@@ -17,8 +17,7 @@
 // 2 the use of 'new' keyword for new object
 // 3 prototype methods
 'use strict';
-// let allKittens = [];
-function Cat(name,likes,isGoodWithKids,isGoodWithDogs,isGoodWithCats,breed){
+function Cat(name, likes, isGoodWithKids, isGoodWithDogs, isGoodWithCats, breed) {
   this.name = name;
   this.age = 0;
   this.likes = likes;
@@ -27,16 +26,15 @@ function Cat(name,likes,isGoodWithKids,isGoodWithDogs,isGoodWithCats,breed){
   this.isGoodWithDogs = isGoodWithDogs;
   this.isGoodWithCats = isGoodWithCats;
   this.breed = breed;
-  // allKittens.push(this);
 }
 
-Cat.prototype.getAge = function(min,max){
+Cat.prototype.getAge = function (min, max) {
   // console.log(this);
-  this.age = getRandomNumber(min,max);
+  this.age = getRandomNumber(min, max);
   // console.log(this);
 };
 
-Cat.prototype.render = function(){
+Cat.prototype.render = function () {
   const container = document.getElementById('kitten-profiles');
   // create the element
   // append the element to it's parent
@@ -51,8 +49,7 @@ Cat.prototype.render = function(){
   pEl.textContent = `${this.name} is adorable, and is ${this.age} months old.`;
   const ulEl = document.createElement('ul');
   articleEl.appendChild(ulEl);
-  for(let i=0; i< this.likes.length; i++)
-  {
+  for (let i = 0; i < this.likes.length; i++) {
     const liEl = document.createElement('li');
     ulEl.appendChild(liEl);
     liEl.textContent = this.likes[i];
@@ -83,7 +80,7 @@ Cat.prototype.render = function(){
   td3El.textContent = this.isGoodWithKids;
   const imgEl = document.createElement('img');
   articleEl.appendChild(imgEl);
-  imgEl.setAttribute('src',this.imagePath);
+  imgEl.setAttribute('src', this.imagePath);
 };
 
 
@@ -103,7 +100,7 @@ Cat.prototype.render = function(){
 // serena.render();
 // console.log(serena);
 
-function getRandomNumber(min,max){
+function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
