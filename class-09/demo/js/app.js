@@ -17,15 +17,18 @@
 // 2 the use of 'new' keyword for new object
 // 3 prototype methods
 'use strict';
-function Cat(name, likes, isGoodWithKids, isGoodWithDogs, isGoodWithCats, breed) {
+let kittens = [];
+function Cat(name, imgurl, likes, isGoodWithKids, isGoodWithDogs, isGoodWithCats, breed) {
   this.name = name;
   this.age = 0;
   this.likes = likes;
-  this.imagePath = `./images/${this.name}.jpeg`;
+  this.imagePath = imgurl;
+  // this.imagePath = `./images/${this.name}.jpeg`;
   this.isGoodWithKids = isGoodWithKids;
   this.isGoodWithDogs = isGoodWithDogs;
   this.isGoodWithCats = isGoodWithCats;
   this.breed = breed;
+  kittens.push(this);
 }
 
 Cat.prototype.getAge = function (min, max) {
@@ -86,17 +89,12 @@ Cat.prototype.render = function () {
 
 //today we will create the object's instances depend on the user inputs
 
-// const frankie = new Cat('frankie',['cuddling', 'chasing string', 'napping'],true,false,true,'British shorthair');
-// const jumper = new Cat('jumper',['cuddling'],true,true,false,'British shorthair');
-// const serena = new Cat('serena',['chasing string', 'napping'],true,false,false,'shorthair');
 
-// frankie.getAge(2,10);
-// frankie.render();
 
-// jumper.getAge(2,10);
+// jumper.getAge(2, 10);
 // jumper.render();
 
-// serena.getAge(2,10);
+// serena.getAge(2, 10);
 // serena.render();
 // console.log(serena);
 
@@ -104,3 +102,34 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+let myForm = document.getElementById('catForm');
+
+
+myForm.addEventListener('submit', addNewCat);
+
+function addNewCat(event) {
+  event.preventDefault();
+  // console.log(event);
+  let catName = event.target.name.value;
+  // console.log(catName);
+  let breed = event.target.breed.value;
+  let imgurl = event.target.imgurl.value;
+  let likes = event.target.likes.value.split(',');
+  console.log(likes);
+
+  let isGoodWithKids = event.target.isGoodWithKids.checked;
+  let isGoodWithDogs = event.target.isGoodWithDogs.checked;
+  let isGoodWithCats = event.target.isGoodWithCats.checked;
+  // console.log(isGoodWithKids);
+  // const frankie = new Cat('frankie', ['cuddling', 'chasing string', 'napping'], true, false, true, 'British shorthair');
+  let newCat = new Cat(catName, imgurl, likes, isGoodWithKids, isGoodWithDogs, isGoodWithCats, breed)
+  newCat.getAge(2, 10);
+  newCat.render();
+}
+
+
+// const frankie = new Cat('frankie', ['cuddling', 'chasing string', 'napping'], true, false, true, 'British shorthair');
+// // const jumper = new Cat('jumper', ['cuddling'], true, true, false, 'British shorthair');
+// // const serena = new Cat('serena', ['chasing string', 'napping'], true, false, false, 'shorthair');
+// frankie.getAge(2, 10);
+// frankie.render();
